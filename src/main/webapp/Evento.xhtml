@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+
+		<h:form id="frm1" prependId="false">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome"/>
+				
+				<p:inputText id="nome" value="#{ajaxRenderizacaoParcial.nome}">
+					<p:ajax listener="#{ajaxRenderizacaoParcial.inverter}" update=":frm2:nomeInvertido"/>
+				</p:inputText>
+			</p:panelGrid>
+		</h:form>
+		
+		<h:form id="frm2" prependId="false">
+			<h:outputText value="#{ajaxRenderizacaoParcial.nomeInvertido}" id="nomeInvertido"/>
+		</h:form>
+		
+
+</h:body> 
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+
+	<h:form id="frm">
+		<p:messages showDetail="true">
+			<p:autoUpdate />
+		</p:messages>
+	
+		<!-- processamento especifico do componente button e login -->
+		
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Login" for="login"/>
+			<h:panelGroup>
+				<p:inputText id="login" value="#{cadastroUsuario.login}" required="true"/>
+				
+				<p:commandButton value="Verifica disponibilidade" action="#{cadastroUsuario.verificaDisponibilidadeLogin()}"
+					process="@this, login"/>
+			</h:panelGroup>
+			
+			<p:outputLabel value="Nome" for="nome"/>
+			<p:inputText id="nome" value="#{cadastroUsuario.nome}" required="true"/>
+		</p:panelGrid>	
+		
+		
+		<p:commandButton value="Cadastrar" action="#{cadastroUsuario.cadastrar()}" process="@form"/>
+	</h:form>
+
+</h:body> 
+</html>
